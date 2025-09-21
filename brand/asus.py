@@ -59,4 +59,4 @@ def download_driver(url: str, name: str):
     e = token["e"]
 
     with open(name + ".exe", "wb") as f:
-        f.write(send(f"https://dlcdnta.asus.com.cn/{url}?st={st}&e={e}", is_file=True))
+        f.write(send(f"https://dlcdnta.asus.com.cn/{url}?st={st}&e={e}", is_file=True))# type: ignore
