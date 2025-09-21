@@ -33,7 +33,7 @@ jobs:
 
       - name: Build executable with PyInstaller
         run: |
-          pyinstaller --onefile --hidden-import=brand.asus main.py --name "driver_downloader_${{ github.ref_name }}"
+          pyinstaller --onefile --hidden-import=brand.asus --hidden-import=brand.lenovo main.py --name "driver_downloader_${{ github.ref_name }}"
 
       - name: Create Release
         uses: actions/create-release@v1
