@@ -32,7 +32,7 @@ jobs:
 
       - name: Build executable with PyInstaller
         run: |
-          pyinstaller --onefile --hidden-import=brand.asus main.py --name "driver_downloader-${{ steps.get_version.outputs.VERSION }}"
+          pyinstaller --onefile --hidden-import=brand.asus main.py --name "driver_downloader-${{ github.ref_name }}"
 
       - name: Create Release
         uses: actions/create-release@v1
