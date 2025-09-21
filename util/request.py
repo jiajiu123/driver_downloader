@@ -10,7 +10,7 @@ def send(
     data: Optional[Dict[str, Any]] = None,
     is_file: bool = False,
     method: str = "GET",
-) -> Optional[Union[bytes, str]]:
+) -> Union[bytes, str]:
     """
     发送HTTP请求的通用函数
 
