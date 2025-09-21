@@ -1,7 +1,8 @@
 from noneprompt import ListPrompt, InputPrompt, Choice
+from typing import Any,Dict
 
 
-def list(text: str, choices: dict[str:any], need_name: bool = False) -> str:
+def list(text: str, choices: Dict[str,Any], need_name: bool = False) -> Any:
     """
     创建一个列表选择器，并返回用户选择的选项数据。
 
@@ -12,8 +13,8 @@ def list(text: str, choices: dict[str:any], need_name: bool = False) -> str:
     Returns:
         用户选择的选项数据
     """
-    choices = [Choice(name, data=value) for name, value in choices.items()]
-    choice = ListPrompt(text, choices=choices).prompt()
+    choices_list = [Choice(name, data=value) for name, value in choices.items()]
+    choice = ListPrompt(text, choices=choices_list).prompt()
     data = choice.data
     name = choice.name
     if need_name:
