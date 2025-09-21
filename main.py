@@ -13,7 +13,7 @@ def main():
                 "选择品牌",
                 {
                     "华硕": "brand.asus",
-                    "联想（未完成）": "brand.lenovo",
+                    "联想": "brand.lenovo",
                     "戴尔（未完成）": "brand.dell",
                     "惠普（未完成）": "brand.hp",
                 },
