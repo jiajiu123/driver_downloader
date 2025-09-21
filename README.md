@@ -24,7 +24,7 @@ https://newsupport.lenovo.com.cn/api/drive/drive_query?searchKey={完整型号}
 ## 获取驱动
 https://newsupport.lenovo.com.cn/api/drive/drive_listnew?searchKey={id}{&sysid=42}
 
-id 上方返回中获取，sysid=42 代表 win10 系统，不加默认 win10
+id 上方返回中获取，sysid=42 代表 win10 系统，不加默认 win10，sysid=248 代表 win11 系统
 
 data→partList→drivelist→DriverName 为驱动名称
 
