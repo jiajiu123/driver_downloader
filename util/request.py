@@ -1,6 +1,7 @@
 import requests
 from typing import Optional, Dict, Any
 import tqdm
+import re
 
 
 def send(
@@ -80,5 +81,7 @@ def download(
             progress_bar.update(len(chunk))
 
     progress_bar.close()
+    rstr = r"[\/\\\:\*\?\"\<\>\|]"  # '/ \ : * ? " < > |'
+    name = re.sub(rstr, "_", name)
     with open(name + ".exe", "wb") as f:
         f.write(file_data)
