@@ -1,4 +1,4 @@
-from util.request import send
+from util.request import send, download
 import json
 import unicodedata
 from typing import Dict, List
@@ -57,6 +57,4 @@ def download_driver(url: str, name: str):
     token = json.loads(token)["result"]
     st = token["st"]
     e = token["e"]
-
-    with open(name + ".exe", "wb") as f:
-        f.write(send(f"https://dlcdnta.asus.com.cn/{url}?st={st}&e={e}", is_file=True))# type: ignore
+    download(f"https://dlcdnta.asus.com.cn/{url}?st={st}&e={e}", name=name)

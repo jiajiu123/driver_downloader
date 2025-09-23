@@ -1,4 +1,4 @@
-from util.request import send
+from util.request import send,download
 import json
 from typing import Dict, List
 from util.prompt import list
@@ -23,10 +23,10 @@ def search_id(model: str):
         )
     )
     id = data["data"][0]["categoryid"]
-    select_driver(id)
+    download_driver(id)
 
 
-def select_driver(id: str):
+def download_driver(id: str):
     osid = list("选择操作系统", {"Windows 10": 42, "Windows 11": 248})
     data = json.loads(
         send(
@@ -48,9 +48,4 @@ def select_driver(id: str):
     for i in driver:
         choices[i[0]] = i[1]
     url = list("选择驱动", choices, True)
-    download_driver(url[1], url[0])
-
-
-def download_driver(url: str, name: str):
-    with open(name + ".exe", "wb") as f:
-        f.write(send(url, is_file=True))  # type: ignore
+    download(url[1], url[0])
