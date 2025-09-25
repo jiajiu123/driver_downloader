@@ -25,7 +25,7 @@ def main():
             if not model.strip():
                 print("错误：型号不能为空")
                 continue
-            if len(model) < 3:
+            if len(model) < 3 and brand == "brand.asus":
                 print("错误：型号长度不能小于3个字符")
                 continue
             break
