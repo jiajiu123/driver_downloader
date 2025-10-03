@@ -1,4 +1,4 @@
-from util.request import send,download
+from util.request import send, download
 import json
 from typing import Dict, List
 from util.prompt import list
@@ -9,6 +9,8 @@ def search_model(model: str):
         send(f"https://newsupport.lenovo.com.cn/api/drive/like/{model}?limit=1000")
     )
     model_data = model_data["data"]
+    if model_data == {"\x00*\x00items": []}:
+        return 1
     choices: Dict[str, str] = {}
     for i in model_data:
         choices[i] = i

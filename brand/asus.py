@@ -11,6 +11,8 @@ def search_model(model: str):
             f"https://odinapi.asus.com.cn/apiv2/SearchSuggestion?SystemCode=asus&WebsiteCode=cn&SearchKey={model}&SearchType=ProductsAll&RowLimit=1000"
         )
     )
+    if model_data["Result"] == []:
+        return 1
     model_data = model_data["Result"][0]["Content"]
     choices: Dict[str, str] = {}
     for i in model_data:

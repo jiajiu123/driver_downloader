@@ -23,12 +23,18 @@ def main():
             model = input("输入型号或服务编码（仅HP支持服务编码）")
 
             if not model.strip():
-                print("错误：型号不能为空")
+                print("型号不能为空")
                 continue
             if len(model) < 3 and brand == "brand.asus":
-                print("错误：型号长度不能小于3个字符")
+                print("型号长度不能小于3个字符")
                 continue
-            break
+            # 动态导入并执行
+            module = importlib.import_module(brand)
+            func = getattr(module, "search_model")
+            if func(model) == 1:
+                print("未找到该型号")
+                continue
+
         except KeyboardInterrupt:
             print("已取消")
 
@@ -37,10 +43,6 @@ def main():
         except Exception as e:
             print(f"发生错误：{e}")
             sys.exit(1)
-    # 动态导入并执行
-    module = importlib.import_module(brand)
-    func = getattr(module, "search_model")
-    func(model)
 
 
 if __name__ == "__main__":
