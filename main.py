@@ -34,7 +34,7 @@ def main():
             if func(model) == 1:
                 print("未找到该型号")
                 continue
-
+            break
         except KeyboardInterrupt:
             print("已取消")
 
