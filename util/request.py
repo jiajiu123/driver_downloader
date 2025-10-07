@@ -3,7 +3,7 @@ import tqdm
 import re
 
 
-def send(url, headers={}, params=None, data=None, method=["GET"]):
+def send(url, headers={}, params=None, data=None, method="GET"):
     """
     发送HTTP请求的通用函数
 
@@ -26,7 +26,7 @@ def send(url, headers={}, params=None, data=None, method=["GET"]):
     return response.text
 
 
-def download(url, name, headers={}, params=None, data=None, method=["GET"]):
+def download(url, name, headers={}, params=None, data=None, method="GET"):
     """
     下载文件并保存到本地
 
