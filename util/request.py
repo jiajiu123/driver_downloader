@@ -1,4 +1,4 @@
-import requests
+from curl_cffi import requests
 from typing import Optional, Dict, Any
 import tqdm
 import re
