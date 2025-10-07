@@ -4,13 +4,7 @@ import tqdm
 import re
 
 
-def send(
-    url: str,
-    headers: Dict[str, Any] = {},
-    params: Optional[Dict[str, Any]] = None,
-    data: Optional[Dict[str, Any]] = None,
-    method: str = "GET",
-) -> str:
+def send(url, headers={}, params=None, data=None, method=["GET"]):
     """
     发送HTTP请求的通用函数
 
@@ -33,20 +27,13 @@ def send(
     return response.text
 
 
-def download(
-    url: str,
-    name: str,
-    headers: Dict[str, Any] = {},
-    params: Optional[Dict[str, Any]] = None,
-    data: Optional[Dict[str, Any]] = None,
-    method: str = "GET",
-) -> None:
+def download(url, name, headers={}, params=None, data=None, method=["GET"]):
     """
     下载文件并保存到本地
 
     Args:
         url: 请求URL
-        name: 保存的文件名（不包括扩展名）
+        name: 文件名
         headers: 请求头字典
         params: URL参数
         data: 请求体数据
